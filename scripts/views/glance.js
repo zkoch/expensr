@@ -1,0 +1,5 @@
+GlanceView = Backbone.View.extend({
+	
+	
+
+});

@@ -1,0 +1,90 @@
+<!--doctype -->
+<html>
+	<head>
+		<link href="styles/normalize.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="styles/main.css" media="screen" rel="stylesheet" type="text/css" />
+
+        <!-- VENDOR ITEMS -->
+        <script type="text/javascript" src="scripts/vendor/jquery.js"></script>
+        <script type="text/javascript" src="scripts/vendor/underscore.js"></script>
+        <script type="text/javascript" src="scripts/vendor/backbone.js"></script>
+        <script type="text/javascript" src="scripts/vendor/handlebars.js"></script>
+        <script type="text/javascript" src="scripts/vendor/backbone.localStorage.js"></script>
+        <script type="text/javascript" src="scripts/vendor/accounting.js"></script>
+
+        <script type="text/javascript" src="scripts/models/transaction.js"></script>
+        <script type="text/javascript" src="scripts/collections/transactions.js"></script>
+        <script type="text/javascript" src="scripts/views/transactionItem.js"></script>
+        <script type="text/javascript" src="scripts/views/expensr.js"></script>
+        <script type="text/javascript" src="scripts/app.js"></script>
+
+		<script type="text/javascript" src="//use.typekit.net/dqn0yec.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+        <!-- TEMPLATES -->
+        <script id="transaction_item_template" type="text/x-handlebars-template">
+            <td>{{desc}}</td>
+            <td>{{toMoney amount}}</td>
+            <td>{{category}}</td>
+            <td class='center'><a class="delete_transaction"><img src="images/trash.png" /></a></td>
+        </script>
+    </head>
+    <body>
+    	<div id="expensr">
+    		<h1>Expensr</h1>
+    		<div id="transaction_form">
+    			<form>
+    				<input type="text" class="form_description" placeholder="What should we call this?" maxlength="50" autofocus/>
+    				<input type="text" class="form_amount" maxlength="6" placeholder="0.00" />
+                    <div id="category_container">
+        				<select id="category">
+        					<option>Restaurants</option>
+        					<option>Groceries</option>
+                            <option>Work Expenses</option>
+                            <option>Entertainment</option>
+                            <option>Paycheques</option>
+                            <option>Rent</option>
+                            <option>Utilities</option>
+        				</select>
+                    </div>
+                    <input type="submit" value="+" />
+    			</form>
+    		</div>
+            <div id="glance" class="clearfix">
+                <div class="info positive">
+                    <div class="title">Money you've made</div>
+                    <div class="amt">--</div>
+                </div>
+
+                <div class="info symbol">
+                    +
+                </div>
+
+                <div class="info negative">
+                    <div class="title">Money you've spent</div>
+                    <div class="amt">--</div>
+                </div>
+
+                <div class="info symbol">
+                    =
+                </div>
+
+                <div class="info total">
+                    <div class="title">Your Net</div>
+                    <div class="amt">--</div>
+                </div>
+            </div>
+            <div id="history">
+                <h2>Recent Transactions</h2>
+                <table id="transaction_history">
+                    <tr class="headings">
+                        <th width="50%">Description</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
+    	</div>
+    </body>
+</html>
